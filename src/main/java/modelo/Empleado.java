@@ -32,11 +32,7 @@ public class Empleado extends Persona {
     try{
         abrir_conexion();
         String query =
-            "SELECT e.idEmpleado, e.nombres, e.apellidos, e.direccion, e.telefono, e.DPI, " +
-            "       e.genero, e.fecha_nacimiento, p.puesto AS nombre_puesto, " +
-            "       e.idPuesto, e.fecha_inicio_labores, e.fechaingreso " +
-            "FROM Empleados e INNER JOIN Puestos p ON e.idPuesto = p.idPuesto " +
-            "ORDER BY e.idEmpleado;";
+            "SELECT e.idEmpleado, e.nombres, e.apellidos, e.direccion, e.telefono, e.DPI, e.genero, e.fecha_nacimiento, p.puesto AS nombre_puesto, e.idPuesto, e.fecha_inicio_labores, e.fechaingreso FROM empleados e INNER JOIN puestos p ON e.idPuesto = p.idPuesto ORDER BY e.idEmpleado;";
         ResultSet rs = conexionBD.createStatement().executeQuery(query);
 
         String[] cols = {"ID","Nombres","Apellidos","Dirección","Teléfono","DPI",
@@ -79,7 +75,7 @@ public class Empleado extends Persona {
         int r=0;
         try{
             abrir_conexion();
-            String sql = "INSERT INTO Empleados(nombres,apellidos,direccion,telefono,DPI,genero,fecha_nacimiento,idPuesto,fecha_inicio_labores) " +
+            String sql = "INSERT INTO empleados(nombres,apellidos,direccion,telefono,DPI,genero,fecha_nacimiento,idPuesto,fecha_inicio_labores) " +
                          "VALUES (?,?,?,?,?,?,?,?,?);";
             PreparedStatement ps = conexionBD.prepareStatement(sql);
             ps.setString(1, getNombres());
@@ -104,7 +100,7 @@ public class Empleado extends Persona {
         int r=0;
         try{
             abrir_conexion();
-            String sql = "UPDATE Empleados SET nombres=?, apellidos=?, direccion=?, telefono=?, DPI=?, genero=?, " +
+            String sql = "UPDATE empleados SET nombres=?, apellidos=?, direccion=?, telefono=?, DPI=?, genero=?, " +
                          "fecha_nacimiento=?, idPuesto=?, fecha_inicio_labores=? WHERE idEmpleado=?;";
             PreparedStatement ps = conexionBD.prepareStatement(sql);
             ps.setString(1, getNombres());
@@ -129,7 +125,7 @@ public class Empleado extends Persona {
         int r=0;
         try{
             abrir_conexion();
-            PreparedStatement ps = conexionBD.prepareStatement("DELETE FROM Empleados WHERE idEmpleado=?;");
+            PreparedStatement ps = conexionBD.prepareStatement("DELETE FROM empleados WHERE idEmpleado=?;");
             ps.setInt(1, getIdEmpleado());
             r = ps.executeUpdate();
             cerrar_conexion();

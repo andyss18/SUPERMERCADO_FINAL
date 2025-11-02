@@ -39,7 +39,7 @@ public class Cliente {
         Conexion conexion = new Conexion();
         try{
             conexion.abrir_conexion();
-            String query = "SELECT * FROM Clientes ORDER BY idCliente;";
+            String query = "SELECT * FROM clientes ORDER BY idCliente;";
             ResultSet rs = conexion.conexionBD.createStatement().executeQuery(query);
 
             String[] cols = {"ID","Nombres","Apellidos","NIT","Género","Teléfono","Correo"};
@@ -58,7 +58,7 @@ public class Cliente {
             }
             conexion.cerrar_conexion();
         }catch(SQLException e){
-            System.out.println("leer Clientes: " + e.getMessage());
+            System.out.println("leer clientes: " + e.getMessage());
         }
         return tabla;
     }
@@ -68,7 +68,7 @@ public class Cliente {
         Conexion conexion = new Conexion();
         try {
             conexion.abrir_conexion();
-            String sql = "INSERT INTO Clientes (nombres, apellidos, NIT, genero, telefono, correo_electronico) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO clientes (nombres, apellidos, NIT, genero, telefono, correo_electronico) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = conexion.conexionBD.prepareStatement(sql);
             stmt.setString(1, this.nombres);
             stmt.setString(2, this.apellidos);
@@ -98,7 +98,7 @@ public class Cliente {
         Conexion conexion = new Conexion();
         try {
             conexion.abrir_conexion();
-            String sql = "UPDATE Clientes SET nombres=?, apellidos=?, NIT=?, genero=?, telefono=?, correo_electronico=? WHERE idCliente=?";
+            String sql = "UPDATE clientes SET nombres=?, apellidos=?, NIT=?, genero=?, telefono=?, correo_electronico=? WHERE idCliente=?";
             PreparedStatement stmt = conexion.conexionBD.prepareStatement(sql);
             stmt.setString(1, this.nombres);
             stmt.setString(2, this.apellidos);

@@ -14,7 +14,7 @@ import java.io.IOException;
 
 // Filtra solo las páginas protegidas
 @WebFilter(urlPatterns = {"/index.jsp", "/clientes.jsp", "/compras.jsp", "/empleados.jsp",
-    "/productos.jsp", "/proveedores.jsp", "/puestos.jsp", "/ventas.jsp", "/api/*"})
+    "/productos.jsp", "/proveedores.jsp", "/puestos.jsp", "/ventas.jsp", "/reportes.jsp", "/api/*"})
 public class JwtAuthFilter implements Filter {
 
     private JwtUtil jwtUtil;

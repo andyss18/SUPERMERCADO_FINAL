@@ -30,7 +30,7 @@ public class Proveedor {
         Conexion conexion = new Conexion();
         try{
             conexion.abrir_conexion();
-            String query = "SELECT * FROM Proveedores ORDER BY idProveedor;";
+            String query = "SELECT * FROM proveedores ORDER BY idProveedor;";
             ResultSet rs = conexion.conexionBD.createStatement().executeQuery(query);
 
             String[] cols = {"ID","Proveedor","NIT","Dirección","Teléfono"};
@@ -63,7 +63,7 @@ public class Proveedor {
                 return;
             }
             
-            String sql = "INSERT INTO Proveedores (proveedor, nit, direccion, telefono) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO proveedores (proveedor, nit, direccion, telefono) VALUES (?, ?, ?, ?)";
             PreparedStatement stmt = conexion.conexionBD.prepareStatement(sql);
             stmt.setString(1, this.proveedor);
             stmt.setString(2, this.nit);
@@ -82,7 +82,7 @@ public class Proveedor {
         Conexion conexion = new Conexion();
         try {
             conexion.abrir_conexion();
-            String sql = "UPDATE Proveedores SET proveedor=?, nit=?, direccion=?, telefono=? WHERE idProveedor=?";
+            String sql = "UPDATE proveedores SET proveedor=?, nit=?, direccion=?, telefono=? WHERE idProveedor=?";
             PreparedStatement stmt = conexion.conexionBD.prepareStatement(sql);
             stmt.setString(1, this.proveedor);
             stmt.setString(2, this.nit);
@@ -102,7 +102,7 @@ public class Proveedor {
         Conexion conexion = new Conexion();
         try {
             conexion.abrir_conexion();
-            String sql = "DELETE FROM Proveedores WHERE idProveedor=?";
+            String sql = "DELETE FROM proveedores WHERE idProveedor=?";
             PreparedStatement stmt = conexion.conexionBD.prepareStatement(sql);
             stmt.setInt(1, this.idProveedore);
             stmt.executeUpdate();

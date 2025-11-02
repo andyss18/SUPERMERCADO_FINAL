@@ -26,7 +26,7 @@ public class Puesto extends Conexion {
         try{
             abrir_conexion();
             ResultSet rs = conexionBD.createStatement()
-                    .executeQuery("SELECT idPuesto, puesto FROM Puestos;");
+                    .executeQuery("SELECT idPuesto, puesto FROM puestos;");
             while(rs.next()){
                 drop.put(rs.getString("idPuesto"), rs.getString("puesto"));
             }
@@ -40,7 +40,7 @@ public class Puesto extends Conexion {
         try{
             abrir_conexion();
             ResultSet rs = conexionBD.createStatement()
-                    .executeQuery("SELECT idPuesto, puesto FROM Puestos;");
+                    .executeQuery("SELECT idPuesto, puesto FROM puestos;");
             tabla.setColumnIdentifiers(new String[]{"ID","Puesto"});
             String[] fila = new String[2];
             while(rs.next()){
@@ -58,7 +58,7 @@ public class Puesto extends Conexion {
         try{
             abrir_conexion();
             PreparedStatement ps = conexionBD.prepareStatement(
-                "INSERT INTO Puestos(puesto) VALUES (?);");
+                "INSERT INTO puestos(puesto) VALUES (?);");
             ps.setString(1, getPuesto());
             r = ps.executeUpdate();
             cerrar_conexion();
@@ -71,7 +71,7 @@ public class Puesto extends Conexion {
         try{
             abrir_conexion();
             PreparedStatement ps = conexionBD.prepareStatement(
-                "UPDATE Puestos SET puesto=? WHERE idPuesto=?;");
+                "UPDATE puestos SET puesto=? WHERE idPuesto=?;");
             ps.setString(1, getPuesto());
             ps.setInt(2, getIdPuesto());
             r = ps.executeUpdate();

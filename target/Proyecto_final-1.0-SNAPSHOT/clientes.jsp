@@ -570,7 +570,7 @@
                         
                         try {
                             conexion.abrir_conexion();
-                            String sql = "SELECT * FROM Clientes";
+                            String sql = "SELECT * FROM clientes";
                             pstmt = conexion.conexionBD.prepareStatement(sql);
                             rs = pstmt.executeQuery();
                             
