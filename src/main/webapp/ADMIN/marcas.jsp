@@ -32,7 +32,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: url("/imagen/marian.jpeg") center top 10% / cover no-repeat fixed;
+            background: url("${pageContext.request.contextPath}/imagen/marian.jpeg") center top 10% / cover no-repeat fixed;
             min-height: 100vh;
             overflow-x: hidden;
             display: flex;
