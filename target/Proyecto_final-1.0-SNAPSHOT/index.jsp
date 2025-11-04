@@ -58,7 +58,7 @@
 
         .top-corner {
             position: fixed;
-            top: 30px;
+            top: 30px;  
             right: 40px;
             z-index: 1000;
         }
@@ -452,6 +452,7 @@
         <ul class="sidebar-menu">
             <li>
                 <a href="${pageContext.request.contextPath}/index.jsp">🏠 Inicio</a>
+                <a href="${pageContext.request.contextPath}/index.jsp">hola sergio</a>
             </li>
             <li>
                 <button class="dropdown-btn">📦 Productos</button>
